@@ -5,7 +5,7 @@ Quality of life features for the D&D 5e system in Foundry VTT. These are the sma
 ## Requirements
 
 - Foundry VTT v14
-- dnd5e system 6.0.0 or newer
+- dnd5e system 6.0.0 or newer, Tested in 6.0.5
 
 ## Features
 
@@ -15,7 +15,7 @@ When a player makes a d20 roll (attack, save, ability check, skill, tool) and th
 
 1. Rolls the Bardic Inspiration die
 2. Adds it to that roll's total
-3. Removes Bardic Inspiration from the character
+3. Removes Bardic Inspiration from the actor
 
 The die size comes from the bard who gave the inspiration when possible. If the module can't tell, it asks which die to roll.
 
