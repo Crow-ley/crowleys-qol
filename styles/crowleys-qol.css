@@ -1,0 +1,88 @@
+/* Crowley's QoL styles.
+   Every class starts with "crowleys-qol-" so it can't clash with
+   Foundry, dnd5e, or another module. */
+
+/* Lets our button sit inside the roll total box. */
+.crowleys-qol-has-bardic {
+  position: relative;
+}
+
+/* ---------- Bardic Inspiration: clickable button ---------- */
+
+.crowleys-qol-bardic-button {
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  overflow: hidden;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid var(--color-border-light-primary, #b5b3a4);
+  border-radius: 50%;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+  /* dnd5e 6's roll row can tell everything inside it to ignore the mouse.
+     Our button must still receive clicks and hovers. */
+  pointer-events: auto !important;
+  z-index: 3;
+}
+
+.crowleys-qol-bardic-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+}
+
+.crowleys-qol-bardic-button:hover,
+.crowleys-qol-bardic-button:focus-visible {
+  box-shadow: 0 0 6px 1px #e05bd0;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.crowleys-qol-bardic-button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+/* ---------- Bardic Inspiration: already used marker ---------- */
+
+.crowleys-qol-bardic-used {
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: var(--font-size-12, 12px);
+  opacity: 0.85;
+}
+
+.crowleys-qol-bardic-used img {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  filter: grayscale(1);
+}
+
+/* ---------- Ready Set Roll Reforged cards ---------- */
+
+/* RSR covers the whole total box with a hover overlay. z-index keeps
+   our button above it so it stays clickable. */
+.rsr-multiroll .crowleys-qol-bardic-button,
+.rsr-multiroll .crowleys-qol-bardic-used {
+  z-index: 2;
+}
+
+/* When the hit/miss icon is showing on the left edge, sit just to its right. */
+.crowleys-qol-bardic-button.crowleys-qol-shift,
+.crowleys-qol-bardic-used.crowleys-qol-shift {
+  left: 36px;
+}

@@ -1,0 +1,33 @@
+# Builds the files Foundry downloads whenever you publish a GitHub Release.
+# Tag the release like v0.1.0 and this sets module.json's version to 0.1.0,
+# zips the module, and attaches module.json + module.zip to the release.
+name: Release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set version from tag
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          jq --arg v "$VERSION" '.version = $v' module.json > module.tmp.json
+          mv module.tmp.json module.json
+
+      - name: Zip the module
+        run: zip -r module.zip module.json scripts styles lang LICENSE README.md
+
+      - name: Attach files to the release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            module.json
+            module.zip

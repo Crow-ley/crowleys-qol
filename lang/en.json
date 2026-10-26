@@ -1,0 +1,22 @@
+{
+  "CROWLEYS_QOL": {
+    "Settings": {
+      "BardicEnabled": {
+        "Name": "Bardic Inspiration Button",
+        "Hint": "Show a clickable Bardic Inspiration image on d20 roll totals in chat for players who have Bardic Inspiration."
+      },
+      "BardicEffectNames": {
+        "Name": "Bardic Inspiration Effect Names",
+        "Hint": "Comma separated list of active effect names that count as Bardic Inspiration. Case does not matter."
+      }
+    },
+    "BardicInspiration": {
+      "Use": "Use {name}: roll the die and add it to this total",
+      "Used": "{name} used: {formula} rolled {result}",
+      "Flavor": "Bardic Inspiration",
+      "Error": "Crowley's QoL could not apply Bardic Inspiration. Check the console (F12) for details.",
+      "PromptTitle": "Bardic Inspiration",
+      "PromptContent": "Which Bardic Inspiration die should be rolled?"
+    }
+  }
+}

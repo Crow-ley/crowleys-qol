@@ -1,0 +1,11 @@
+# OS clutter
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Build output
+module.zip
+node_modules/
