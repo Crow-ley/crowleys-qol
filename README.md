@@ -7,7 +7,7 @@ Quality of life features for the D&D 5e system in Foundry VTT. These are the sma
 - Foundry VTT v14
 - dnd5e system 6.0.0 or newer, Tested in 6.0.5
 
-## Features
+## Current V0.1.0 Features
 
 ### Bardic Inspiration button
 
