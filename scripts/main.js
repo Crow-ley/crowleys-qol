@@ -1,6 +1,7 @@
 import { MODULE_ID } from "./constants.js";
 import { registerSettings } from "./settings.js";
-import { initBardicInspiration } from "./features/bardic-inspiration.js";
+import { registerRollModifier, initRollModifiers } from "./roll-mods/engine.js";
+import { bardicInspiration } from "./roll-mods/modifiers/bardic-inspiration.js";
 
 /**
  * Entry point. Foundry loads this file because it is listed under
@@ -19,5 +20,8 @@ Hooks.once("init", () => {
   // different system, do nothing at all.
   if (game.system.id !== "dnd5e") return;
 
-  initBardicInspiration();
+  // Abilities that change a d20 roll after it lands in chat.
+  // To add a new one, write a file in roll-mods/modifiers/ and register it here.
+  registerRollModifier(bardicInspiration);
+  initRollModifiers();
 });

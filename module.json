@@ -2,7 +2,7 @@
   "id": "crowleys-qol",
   "title": "Crowley's QoL",
   "description": "Quality of life features for the D&D 5e system that feel like they should already be built into Foundry. Starts with one-click Bardic Inspiration on d20 rolls in chat.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "authors": [
     {
       "name": "Crowley",

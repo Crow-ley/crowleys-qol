@@ -10,13 +10,15 @@
         "Hint": "Comma separated list of active effect names that count as Bardic Inspiration. Case does not matter."
       }
     },
+    "RollMods": {
+      "Error": "Crowley's QoL could not apply {name}. Check the console (F12) for details.",
+      "PromptDie": "Which die should be rolled?"
+    },
     "BardicInspiration": {
       "Use": "Use {name}: roll the die and add it to this total",
       "Used": "{name} used: {formula} rolled {result}",
       "Flavor": "Bardic Inspiration",
-      "Error": "Crowley's QoL could not apply Bardic Inspiration. Check the console (F12) for details.",
-      "PromptTitle": "Bardic Inspiration",
-      "PromptContent": "Which Bardic Inspiration die should be rolled?"
+      "PromptTitle": "Bardic Inspiration"
     }
   }
 }

@@ -13,7 +13,7 @@ export function registerSettings() {
     config: true,
     type: Boolean,
     default: true,
-    requiresReload: true
+    requiresReload: false
   });
 
   game.settings.register(MODULE_ID, "bardicEffectNames", {

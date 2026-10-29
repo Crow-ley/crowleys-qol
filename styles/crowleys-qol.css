@@ -2,18 +2,38 @@
    Every class starts with "crowleys-qol-" so it can't clash with
    Foundry, dnd5e, or another module. */
 
-/* Lets our button sit inside the roll total box. */
-.crowleys-qol-has-bardic {
+/* ---------- Roll modifier buttons on d20 totals ---------- */
+
+/* Lets our box sit inside the roll total. */
+.crowleys-qol-has-mods {
   position: relative;
 }
 
-/* ---------- Bardic Inspiration: clickable button ---------- */
-
-.crowleys-qol-bardic-button {
+/* The box that holds every button and "used" marker, on the left edge. */
+.crowleys-qol-mods {
   position: absolute;
   left: 4px;
   top: 50%;
   transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  /* dnd5e 6's roll row can tell everything inside it to ignore the mouse,
+     and RSR covers the whole total with a hover overlay. z-index and
+     pointer-events keep our buttons on top and clickable. */
+  z-index: 3;
+  pointer-events: auto !important;
+}
+
+/* When the hit/miss icon is showing on the left edge, sit just to its right. */
+.crowleys-qol-mods.crowleys-qol-shift {
+  left: 36px;
+}
+
+/* ---------- Clickable button ---------- */
+
+.crowleys-qol-mod-button {
+  flex: none;
   width: 28px;
   height: 28px;
   min-height: 0;
@@ -26,37 +46,30 @@
   border: 1px solid var(--color-border-light-primary, #b5b3a4);
   border-radius: 50%;
   transition: box-shadow 0.15s ease, transform 0.15s ease;
-  /* dnd5e 6's roll row can tell everything inside it to ignore the mouse.
-     Our button must still receive clicks and hovers. */
   pointer-events: auto !important;
-  z-index: 3;
 }
 
-.crowleys-qol-bardic-button img {
+.crowleys-qol-mod-button img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border: none;
 }
 
-.crowleys-qol-bardic-button:hover,
-.crowleys-qol-bardic-button:focus-visible {
+.crowleys-qol-mod-button:hover,
+.crowleys-qol-mod-button:focus-visible {
   box-shadow: 0 0 6px 1px #e05bd0;
-  transform: translateY(-50%) scale(1.1);
+  transform: scale(1.1);
 }
 
-.crowleys-qol-bardic-button:disabled {
+.crowleys-qol-mod-button:disabled {
   opacity: 0.5;
   cursor: wait;
 }
 
-/* ---------- Bardic Inspiration: already used marker ---------- */
+/* ---------- Already used marker ---------- */
 
-.crowleys-qol-bardic-used {
-  position: absolute;
-  left: 4px;
-  top: 50%;
-  transform: translateY(-50%);
+.crowleys-qol-mod-used {
   display: flex;
   align-items: center;
   gap: 3px;
@@ -64,25 +77,10 @@
   opacity: 0.85;
 }
 
-.crowleys-qol-bardic-used img {
+.crowleys-qol-mod-used img {
   width: 20px;
   height: 20px;
   border: none;
   border-radius: 50%;
   filter: grayscale(1);
-}
-
-/* ---------- Ready Set Roll Reforged cards ---------- */
-
-/* RSR covers the whole total box with a hover overlay. z-index keeps
-   our button above it so it stays clickable. */
-.rsr-multiroll .crowleys-qol-bardic-button,
-.rsr-multiroll .crowleys-qol-bardic-used {
-  z-index: 2;
-}
-
-/* When the hit/miss icon is showing on the left edge, sit just to its right. */
-.crowleys-qol-bardic-button.crowleys-qol-shift,
-.crowleys-qol-bardic-used.crowleys-qol-shift {
-  left: 36px;
 }
